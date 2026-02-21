@@ -3,12 +3,62 @@ Theme Name: Hallo Troutshop
 Theme URI: https://troutshop24.de
 Author: Site Recovery Kit
 Description: 1:1 migration shell theme for reproducing badsquiddogames.com on WordPress without redesign.
-Version: 1.1.0
+Version: 1.2.0
 Text Domain: hallo-troutshop
 */
 
 /*
-IMPORTANT:
-- Keep this file minimal (WP theme header only).
-- Put original visual styles into /assets/css/site.css copied from source snapshot.
+Structural baseline only (no visual redesign):
+- stabilize header/footer positioning
+- normalize WP menu markup
+- keep page content flow predictable for imported 1:1 HTML/CSS
 */
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.site-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.site-main {
+  flex: 1 0 auto;
+}
+
+.site-header,
+.site-footer {
+  width: 100%;
+}
+
+.site-header-inner,
+.site-footer-inner {
+  width: min(1200px, 94vw);
+  margin: 0 auto;
+}
+
+.site-nav .menu,
+.site-footer-nav .menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.site-nav .menu li,
+.site-footer-nav .menu li {
+  margin: 0;
+  padding: 0;
+}
+
+.site-nav .menu a,
+.site-footer-nav .menu a,
+.site-brand {
+  text-decoration: none;
+}
